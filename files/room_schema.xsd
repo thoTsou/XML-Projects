@@ -1,0 +1,142 @@
+<?xml version ="1.0" encoding ="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="hotel">
+		<xs:complexType >
+			<xs:sequence>
+				<xs:element name="rooms" >
+					<xs:complexType>	
+					<xs:sequence>
+						<xs:element name="room" maxOccurs="unbounded">
+							<xs:complexType>	
+							<xs:sequence>
+								<xs:element name="roomName">
+									<xs:complexType mixed="true">
+										<xs:attribute name="suit" use="optional">
+										<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="yes" />
+													<xs:enumeration value="no" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:attribute>
+										<xs:attribute name="wiFi" default="yes" use="optional">
+										<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="yes" />
+													<xs:enumeration value="no" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:attribute>
+										<xs:attribute name="floor" type="xs:string"/>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="capacity">
+									<xs:complexType>
+										<xs:sequence>
+										<xs:element name="cap" >
+											<xs:complexType>
+											<xs:attribute name="capNumber" use="required">
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="1" />
+														<xs:enumeration value="2" />
+														<xs:enumeration value="3" />
+														<xs:enumeration value="4" />
+													</xs:restriction>
+												</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="beds" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="single" type="xs:string" minOccurs="0" maxOccurs="1"/>
+											<xs:element name="double" type="xs:string" minOccurs="0" maxOccurs="1"/>
+											<xs:element name="XL" type="xs:string" minOccurs="0" maxOccurs="1"/>
+											<xs:element name="bedCouch" type="xs:string" minOccurs="0" maxOccurs="1"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="views" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="view" type="xs:string" maxOccurs="unbounded"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="amenities" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>	
+											<xs:element name="amenity" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType mixed="true">
+													<xs:attribute name="extraCharge" type="xs:string" use="optional" />
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="pricePerSeason" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>	
+											<xs:element name="price" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType mixed="true">
+													<xs:attribute name="season" use="required" >
+													<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:enumeration value="low" />
+														<xs:enumeration value="med" />
+														<xs:enumeration value="high" />
+													</xs:restriction>
+													</xs:simpleType>
+													</xs:attribute>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="code" type="xs:ID" use="required"/>
+							</xs:complexType>
+						</xs:element>
+						
+					
+						
+					</xs:sequence>
+					</xs:complexType>
+					
+				</xs:element>
+				
+				<xs:element name="offers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="offer" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+								<xs:sequence>
+									<xs:element name="date" >
+										<xs:complexType>
+											<xs:attribute name="startFrom" type="xs:string" use="required" />
+											<xs:attribute name="endAt" type="xs:string" use="required"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="offerRooms" type="xs:IDREFS" use="required" />
+								<xs:attribute name="offerPrice" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+					
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="stars" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	
+	
+</xs:schema>

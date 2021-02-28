@@ -1,0 +1,24 @@
+car{
+display:block;
+}
+
+
+
+
+
+amount,descr,equip,exec_equip{
+display:block;
+}
+
+offer_include::after{
+	content:"________________________________________________________________________________________";
+}
+
+equip::before{
+	content:"- "
+}
+
+exec_equip::before{
+	content:"- "
+}
+

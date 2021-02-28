@@ -1,0 +1,237 @@
+car{
+border-style:solid none none none;
+border-width:5px;
+border-color:#f44336;
+margin-left:15px;
+margin-right:15px;
+margin-top:10px;	
+}
+
+car,extra_car_info,main_characteristics,main_characteristics,economic_info_leasing,equipment,offer_include{
+display:block;
+margin-left:10px;
+}
+
+Engine,CO2_emissions,Fuel_consumption,monthly_leasing,payment_in_advance,retail_price,Retail_price_before_taxes,detail_econ_info,basic_equipment,executive_equip,include{
+display:block;
+}
+
+manufacturer_brand{
+	font-size:x-large;
+	font-weight:bold;
+}
+
+
+
+amount,descr,equip,exec_equip{
+display:block;
+}
+
+extra_car_info::after 
+{
+content:"Χρώμα : "attr(color)"";
+}
+
+extra_car_info::before
+{
+content:attr(mini_model_description);
+display:block;
+}
+
+main_characteristics{
+	margin-top:50px;
+	margin-bottom:20px;
+}
+
+Engine,CO2_emissions,Fuel_consumption{
+	border-style:none none solid none;
+	border-bottom-width:1px;
+	border-bottom-color:grey;
+	padding-bottom:8px;
+	padding-top:8px;
+	font-weight:bold;
+	width:30%;
+}
+
+economic_info_leasing::before{
+	content:"Οικονoμικά:";
+	border-style:none none solid none;
+	border-bottom-width:2px;
+	border-bottom-color:#f44336;
+	color:#f44336;
+	font-weight:bold;
+}
+
+retail_price::before{
+	content:"Λιανική τιμή : "
+}
+
+Retail_price_before_taxes::before{
+	content:"Λιανική τιμή προ Φόρων : "
+}
+
+Retail_price_before_taxes::after{
+	content: " € " ;
+}
+
+retail_price::after{
+	content: " € " ;
+}
+
+detail_econ_info::before{
+	content:"Πληροφορίες /όροι : "
+}
+
+
+monthly_leasing[without_tax="true"]::before{
+	content:"Μηνιαίο μίσθωμα χωρίς ΦΠΑ : "
+}
+
+monthly_leasing::after{
+	content: " € " ;
+}
+
+amount::after{
+	content: " € " ;
+}
+
+
+monthly_leasing[without_tax="false"]::before{
+	content:"Μηνιαίο μίσθωμα με ΦΠΑ 24% : "
+}
+
+payment_in_advance::before{
+	content:"Προκαταβολη : ";
+	border-style:none none solid none;
+	border-color:black;
+	border-width:2px;
+	font-weight:bold;
+}
+
+amount[without_tax="true"]::before{
+	content:"Ποσό χωρίς ΦΠΑ : "
+}
+
+amount[without_tax="false"]::before{
+	content:"Ποσό με ΦΠΑ : "
+}
+
+economic_info_leasing{
+	margin-top:15px;
+	margin-bottom:25px;
+	border-style:solid;
+	border-color:grey;
+	border-width:2px;
+	width:40%;
+	padding:10px;
+}
+
+basic_equipment::before{
+	content:"Στοιχεία Βασικού Εξοπλισμού : ";
+	font-weight:bold;
+	font-size:large;
+}
+
+executive_equip::before{
+	content:"Στοιχεία Executive Εξοπλισμού : ";
+	font-weight:bold;
+	font-size:large;
+}
+
+Retail_price_before_taxes{
+	margin-bottom:10px;
+}
+
+
+equip::before{
+	content:"- "
+}
+
+detail_econ_info{
+	font-weight:bold;
+}
+
+monthly_leasing{
+	margin-top:5px;
+	color:white;
+	background-color:#f44336;
+	width:50%;
+}
+
+exec_equip::before{
+	content:"- "
+}
+
+Engine::before{
+	content:"Κινητήρας : ";
+}
+
+CO2_emissions::before{
+	content:"Εκπομπές  CO2 [gr/km] : "
+}
+
+Fuel_consumption::before{
+	content:"Κατανάλωση  Καυσίμου [lt/100km] : "
+}
+
+offer_include::before{
+	content:"Η προσφορά περιλαμβάνει : ";
+	font-weight:bold;
+	font-size:large;
+}
+
+descr{
+	margin-bottom:10px;
+}
+
+descr::before{
+	content:"• ";
+}
+
+include::before{
+	content:"• ";
+	color:red;
+}
+
+basic_equipment,executive_equip {
+	margin-bottom:15px;
+}
+
+payment_in_advance{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+Fuel_consumption[mixed_cycle="yes"]::after{
+		content:" (μικτός κύκλος)";
+}
+
+CO2_emissions[mixed_cycle="yes"]::after{
+		content:" (μικτός κύκλος)";
+}
+
+manufacturer_brand::after{
+	content:attr(monthly_leasing);
+	margin-left:90%;
+	margin-top:0%;
+}
+
+span{
+	margin-left:45%;
+	font-size:3em;
+	margin-top:3%;
+	background-color:#f44336;
+	width:25%;
+	color:white;
+}
+
+span::before{
+	content:"Aπό "
+}
+
+span::after{
+	content:" το μήνα (χωρις ΦΠΑ) "
+}
+
+
+

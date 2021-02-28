@@ -1,0 +1,140 @@
+<?xml version ="1.0" encoding ="UTF-8" ?>
+
+<!DOCTYPE hotel [
+
+<!ELEMENT hotel (rooms,offers) >
+<!ATTLIST hotel name CDATA #REQUIRED stars CDATA #REQUIRED  >
+
+	<!ELEMENT rooms (room+) >
+		<!ELEMENT room (roomName,capacity,beds+,views+,amenities+,pricePerSeason+) >
+		<!ATTLIST room code ID #REQUIRED >
+
+	<!ELEMENT roomName (#PCDATA)>
+		<!ATTLIST roomName suit (yes|no) #IMPLIED wiFi (yes|no) "yes" floor CDATA #IMPLIED >
+
+	<!ELEMENT capacity (cap)>
+		<!ELEMENT cap EMPTY>
+		<!ATTLIST cap capNumber (1|2|3|4) #REQUIRED>
+
+	<!ELEMENT beds (single?,double?,XL?,bedCouch?)>
+		<!ELEMENT single (#PCDATA)>
+		<!ELEMENT double (#PCDATA)>
+		<!ELEMENT XL (#PCDATA)>
+		<!ELEMENT bedCouch (#PCDATA)>
+
+
+
+	<!ELEMENT views (view+)>
+		<!ELEMENT view (#PCDATA)>
+
+	<!ELEMENT amenities (amenity*)>
+		<!ELEMENT amenity (#PCDATA)>
+		<!ATTLIST amenity extraCharge CDATA #IMPLIED >
+
+
+
+	<!ELEMENT pricePerSeason (price*)>
+		<!ELEMENT price (#PCDATA)>
+		<!ATTLIST price season (low|med|high) #REQUIRED >
+
+
+
+	<!ELEMENT offers (offer*) >
+		<!ELEMENT offer (date) >
+		<!ATTLIST offer offerRooms IDREFS #REQUIRED offerPrice CDATA #REQUIRED >
+		<!ELEMENT date EMPTY>
+		<!ATTLIST date startFrom CDATA #REQUIRED endAt CDATA #REQUIRED >
+
+
+]>
+
+<hotel name="FILOXENIA" stars="4">
+	<rooms>
+		<room code="No.1">
+			<roomName suit="yes" floor="5">Red Room</roomName>
+			<capacity>
+				<cap capNumber="4" />
+			</capacity>
+			<beds>
+			    <double>1</double>
+				<XL>1</XL>
+			</beds>
+			<views>
+				<view>Sea</view>
+				<view>Street view</view>
+			</views>
+			<amenities>
+				<amenity>amenity 1</amenity>
+				<amenity extraCharge="30 euro">amenity 2</amenity>
+				<amenity>amenity 3</amenity>
+				<amenity>amenity 4</amenity>
+			</amenities>
+			<pricePerSeason>
+				<price season="low">300 euro per night</price>
+				<price season="med">600 euro per night</price>
+				<price season="high">800 euro per night</price>
+			</pricePerSeason>
+		</room>
+		
+		
+		<room code="No.2">
+			<roomName floor="2">Green Room</roomName>
+			<capacity>
+				<cap capNumber="6" />
+			</capacity>
+			<beds>
+			    <double>1</double>
+			</beds>
+			<views>
+		
+			</views>
+			<amenities>
+				<amenity>amenity 1</amenity>
+			</amenities>
+			<pricePerSeason>
+				<price season="low">25 euro per night</price>
+				<price season="med">40 euro per night</price>
+				<price season="high">55 euro per night</price>
+			</pricePerSeason>
+		</room>
+		
+		<room code="No.3">
+		
+			<roomName floor="1" wiFi="no">Yellow Room</roomName>
+			<capacity>
+				<cap capNumber="1" />
+			</capacity>
+			<beds>
+			    <single>1</single>
+			</beds>
+			<views>
+				<view>Mountain View</view>
+			</views>
+			<amenities>
+				<amenity>amenity 1</amenity>
+				<amenity extraCharge="5 euro">amenity 2</amenity>
+			</amenities>
+			<pricePerSeason>
+				<price season="low">20 euro per night</price>
+				<price season="med">40 euro per night</price>
+				<price season="high">50 euro per night</price>
+			</pricePerSeason>
+
+		</room>
+		
+	</rooms>
+
+
+	<offers>
+		<offer offerPrice="150 euro">
+			<date startFrom="October 10" endAt="16 October" />
+		</offer>
+		<offer offerRooms="No.2 No.3" offerPrice="20 euro">
+			<date startFrom="October 10" endAt="16 October" />
+		</offer>
+	</offers>
+
+
+</hotel>
+
+<!-- capNumber=="6" , empty views , den exei sto offer to required attribute offerRooms  -->

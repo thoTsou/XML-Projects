@@ -1,0 +1,43 @@
+<!ELEMENT cars (car*)>
+
+	<!ELEMENT car (manufacturer_brand,extra_car_info,main_characteristics,economic_info_leasing,equipment,offer_include)>
+	<!ATTLIST car no ID #REQUIRED>
+	
+	<!ELEMENT extra_car_info EMPTY >
+	<!ATTLIST extra_car_info mini_model_description CDATA #IMPLIED color CDATA #REQUIRED>
+	
+	<!ELEMENT manufacturer_brand (#PCDATA|model)*>
+	<!ELEMENT model (#PCDATA)>
+	
+		
+	<!ELEMENT main_characteristics (Engine|CO2_emissions|Fuel_consumption)+>
+		<!ELEMENT Engine (#PCDATA)>
+		<!ELEMENT CO2_emissions (#PCDATA)>
+		<!ATTLIST CO2_emissions em_unit CDATA #FIXED "grCO2/km" mixed_cycle (yes|no) #IMPLIED>
+		<!ELEMENT Fuel_consumption (#PCDATA)>
+		<!ATTLIST Fuel_consumption unit_fuel CDATA #FIXED "lt/100km" mixed_cycle (yes|no) #IMPLIED>
+
+	<!ELEMENT equipment (basic_equipment,executive_equip?)>
+		<!ELEMENT basic_equipment (equip+)>
+			<!ELEMENT equip (#PCDATA)>
+			<!ATTLIST equip id ID #REQUIRED>
+		<!ELEMENT executive_equip (exec_equip+)>
+			<!ELEMENT exec_equip (#PCDATA)>
+			<!ATTLIST exec_equip id ID #REQUIRED>
+			
+	
+	<!ELEMENT offer_include (include*)>
+		<!ELEMENT include (#PCDATA)>
+		
+	<!ELEMENT economic_info_leasing (monthly_leasing+,payment_in_advance,retail_price,Retail_price_before_taxes,detail_econ_info)>
+		<!ELEMENT monthly_leasing (#PCDATA)>
+			<!ATTLIST monthly_leasing without_tax (true|false) #REQUIRED tax (0|24_percent) #IMPLIED leasing_unit CDATA "euro" >
+		<!ELEMENT payment_in_advance (amount+,descr?)>
+			<!ELEMENT amount (#PCDATA)>
+			<!ATTLIST amount without_tax (true|false) #REQUIRED tax (0|24_percent) #IMPLIED payment_unit CDATA "euro">
+         	<!ELEMENT descr (#PCDATA)>	 
+		<!ELEMENT retail_price (#PCDATA)>
+			<!ATTLIST retail_price retail_unit CDATA "euro">
+		<!ELEMENT Retail_price_before_taxes (#PCDATA)>
+			<!ATTLIST Retail_price_before_taxes retail_bef_tax_unit CDATA "euro">
+		<!ELEMENT detail_econ_info (#PCDATA)>

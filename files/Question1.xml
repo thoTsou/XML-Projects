@@ -1,0 +1,94 @@
+<?xml version ="1.0" encoding ="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="room_present1.xsl" ?>
+
+
+
+<hotel name="FILOXENIA" stars="4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="room_schema.xsd">
+	<rooms>
+		<room code="No.1">
+			<roomName suit="yes" floor="5">Red Room</roomName>
+			<capacity>
+				<cap capNumber="4" />
+			</capacity>
+			<beds>
+			    <double>1</double>
+				<XL>1</XL>
+			</beds>
+			<views>
+				<view>Sea</view>
+				<view>Street view</view>
+			</views>
+			<amenities>
+				<amenity>amenity 1</amenity>
+				<amenity extraCharge="30 euro">amenity 2</amenity>
+				<amenity>amenity 3</amenity>
+				<amenity>amenity 4</amenity>
+			</amenities>
+			<pricePerSeason>
+				<price season="low">300 euro per night</price>
+				<price season="med">600 euro per night</price>
+				<price season="high">800 euro per night</price>
+			</pricePerSeason>
+		</room>
+		
+		
+		<room code="No.2">
+			<roomName floor="2">Green Room</roomName>
+			<capacity>
+				<cap capNumber="2" />
+			</capacity>
+			<beds>
+			    <double>1</double>
+			</beds>
+			<views>
+				<view>Street view</view>
+			</views>
+			<amenities>
+				<amenity>amenity 1</amenity>
+			</amenities>
+			<pricePerSeason>
+				<price season="low">25 euro per night</price>
+				<price season="med">40 euro per night</price>
+				<price season="high">55 euro per night</price>
+			</pricePerSeason>
+		</room>
+		
+		<room code="No.3">
+		
+			<roomName floor="1" wiFi="no">Yellow Room</roomName>
+			<capacity>
+				<cap capNumber="1" />
+			</capacity>
+			<beds>
+			    <single>1</single>
+			</beds>
+			<views>
+				<view>Mountain View</view>
+			</views>
+			<amenities>
+				<amenity>amenity 1</amenity>
+				<amenity extraCharge="5 euro">amenity 2</amenity>
+			</amenities>
+			<pricePerSeason>
+				<price season="low">20 euro per night</price>
+				<price season="med">40 euro per night</price>
+				<price season="high">50 euro per night</price>
+			</pricePerSeason>
+
+		</room>
+		
+	</rooms>
+
+
+	<offers>
+		<offer offerRooms="No.1" offerPrice="150 euro">
+			<date startFrom="October 10" endAt="16 October" />
+		</offer>
+		<offer offerRooms="No.2 No.3" offerPrice="20 euro">
+			<date startFrom="October 10" endAt="16 October" />
+		</offer>
+	</offers>
+
+
+</hotel>
